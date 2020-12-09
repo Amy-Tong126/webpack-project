@@ -46,6 +46,7 @@
   },
   "scripts": {
     "test": "webpack",
+    "mpa": "cross-env NODE_ENV=mpa webpack --config ./webpack.config.js",
     "dev": "cross-env NODE_ENV=development webpack --config ./webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
     "server": "cross-env NODE_ENV=development webpack --config ./webpack.config.js serve --open Chrome.exe"
