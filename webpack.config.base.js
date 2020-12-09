@@ -5,6 +5,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const optimiseCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const glob = require('glob-all');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
+const CopyWebpackPlugin = require('./myPlugin/copy-webpack-plugin.js');
 
 module.exports = {
     entry: "./src/index.js",
@@ -60,6 +61,11 @@ module.exports = {
                             '@babel/preset-react'
                         ]
                     }
+                }, {// 自定义loader测试
+                    loader: path.resolve(__dirname, './myLoader/replaceLoader.js'),
+                    options: {
+                        name: "你好"
+                    }
                 }]
             }
         ]
@@ -99,5 +105,6 @@ module.exports = {
                 path.resolve(__dirname, './src/*.js')
             ])
         }),
+        new CopyWebpackPlugin({ name: "hello" })
     ]
 }
